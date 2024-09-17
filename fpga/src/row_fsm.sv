@@ -12,7 +12,7 @@ module row_fsm(
 
     //next state and output logic
     always_comb
-        case(state):
+        case(state)
             2'b00: begin
                     if(en) next = 2'b01;
                     else next = 2'b00;

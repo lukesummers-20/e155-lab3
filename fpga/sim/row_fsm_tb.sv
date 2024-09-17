@@ -10,11 +10,25 @@ module row_fsm_tb();
         row_expected = 4'b0001;
         en = 1; #5;
         clk = 1; #5;
+	    reset = 1;
         if (row != row_expected) begin
             $display(" row = %b row_expected = %b on reset", row, row_expected);
         end
         clk = 0; #5;
         row_expected = 4'b0010;
+        clk = 1; #5;
+        if (row != row_expected) begin
+            $display(" row = %b row_expected = %b on first step", row, row_expected);
+        end
+	clk = 0; #5;
+        row_expected = 4'b0100;
+        clk = 1; #5;
+        if (row != row_expected) begin
+            $display(" row = %b row_expected = %b on first step", row, row_expected);
+        end
+	en = 0;
+	clk = 0; #5;
+        row_expected = 4'b0100;
         clk = 1; #5;
         if (row != row_expected) begin
             $display(" row = %b row_expected = %b on first step", row, row_expected);
