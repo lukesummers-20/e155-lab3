@@ -1,7 +1,7 @@
 module press_fsm(
     input  logic [3:0] col,
     input  logic clk, reset,
-    output logic enRow, enSwitch,
+    output logic enRow, enSwitch
 );
     logic [3:0] state, next;
 
@@ -20,7 +20,7 @@ module press_fsm(
                         else if (col == 4'b0010) next = 4'b0011;
                         else if (col == 4'b0100) next = 4'b0101;
                         else if (col == 4'b1000) next = 4'b0111;
-                        else next = 4b'0000;
+                        else next = 4'b0000;
                     end
             4'b0001: next = 4'b0010;
             4'b0010: begin
@@ -29,7 +29,7 @@ module press_fsm(
                     end
             4'b0011: next = 4'b0100;
             4'b0100: begin
-                        if (col[1] == 1) next = 4'b0100:
+                        if (col[1] == 1) next = 4'b0100;
                         else next = 4'b0000;
                     end
             4'b0101: next = 4'b0110;
