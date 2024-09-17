@@ -13,7 +13,7 @@ module press_fsm(
 
     //next state logic
     always_comb
-        case(state):
+        case(state)
             4'b0000: begin
                         if (col == 4'b0000) next = 4'b0000;
                         else if (col == 4'b0001) next = 4'b0001;
