@@ -1,7 +1,7 @@
 module press_fsm(
     input  logic [3:0] col,
     input  logic clk, reset,
-    output logic enRow, enSwitch
+    output logic enRow, enSwitch, press
 );
     logic [3:0] state, next;
 
@@ -47,5 +47,6 @@ module press_fsm(
 
     //output logic
     assign enRow = !(state);
-    assign enSwitch = state[0];
+    assign enSwitch = (~state[0]) & (!(!state));
+    assign press = state[0];
 endmodule

@@ -4,7 +4,7 @@ module fsm_top(
     output logic [3:0] row,
     output logic enOut
 );
-    logic innerEn;
-    press_fsm fsm1(col, clk, reset, innerEn, enOut);
-    row_fsm fsm2(innerEn, clk, reset, row);
+    logic innerEn, press;
+    press_fsm fsm1(col, clk, reset, innerEn, enOut, press);
+    row_fsm fsm2(innerEn, press, clk, reset, row);
 endmodule
