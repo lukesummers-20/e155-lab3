@@ -1,7 +1,7 @@
 module fsm_decoder(
     input  logic [3:0] col, row,
     input  logic en, clk, reset,
-    output logic [3:0] s1, s2,
+    output logic [3:0] s1, s2
 );
     logic [3:0] next;
     // update signals on en
@@ -58,4 +58,4 @@ module fsm_decoder(
                      end
             default: next = 4'b0000;
         endcase
-endmoudle
+endmodule
