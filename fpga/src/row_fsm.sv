@@ -16,22 +16,22 @@ module row_fsm(
             2'b00: begin
                     if(en) next = 2'b01;
                     else next = 2'b00;
-                    row = 0001;
+                    row = 4'b0001;
                    end
             2'b01: begin
                     if(en) next = 2'b10;
                     else next = 2'b01;
-                    row = 0010;
+                    row = 4'b0010;
                    end
             2'b10: begin
                     if(en) next = 2'b11;
                     else next = 2'b10;
-                    row = 0100;
+                    row = 4'b0100;
                    end
             2'b11: begin
                     if(en) next = 2'b00;
                     else next = 2'b11;
-                    row = 1000;
+                    row = 4'b1000;
                    end
             default: next = 2'b00;
         endcase
