@@ -4,11 +4,11 @@ module press_fsm(
     output logic enRow, enSwitch, press
 );
     logic [3:0] state, next;
-
+	
     // state register
     always_ff @(posedge clk) begin
         if (reset == 0) state <= 4'b0000;
-        else state <= next;
+		else	state <= next;
     end
 
     //next state logic

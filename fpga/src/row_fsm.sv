@@ -7,7 +7,7 @@ module row_fsm(
     //state register
     always_ff @(posedge clk) begin
         if (reset == 0) state <= 2'b00;
-        else state <= next;
+		else	state <= next;
     end
 
     //next state and output logic
