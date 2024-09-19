@@ -14,7 +14,7 @@ module lab3_oscillator(
         if (reset == 0) begin
             oscOut <= 0;
 			counter <= 0;
-		end else if (counter == 250000) begin
+		end else if (counter == 125000) begin
 			oscOut <= ~oscOut;
 			counter <= 0;
         end else counter <= counter + 1;
