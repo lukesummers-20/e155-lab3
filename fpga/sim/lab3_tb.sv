@@ -26,7 +26,7 @@ module lab3_tb();
 
     lab3_for_tb m1(col, clk, reset, row, en1, en2, seg);
 
-    intial begin
+    initial begin
         reset = 0;
         clk = 0;
         col = 4'b0000; #5;
