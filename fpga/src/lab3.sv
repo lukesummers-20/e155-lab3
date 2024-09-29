@@ -19,7 +19,7 @@ module lab3(
     lab3_fsm fsm1(col_sync, clk, reset, row, row_pressed, en);
 
     logic[3:0] s1, s2;
-    fsm_decoder d1(col, row_pressed, en, clk, reset, s1, s2);
+    fsm_decoder d1(col_sync, row_pressed, en, clk, reset, s1, s2);
 
     logic[3:0] sevSegIn;
     inputMultiplexer m1(reset, clk, s1, s2, en1, en2, sevSegIn);
