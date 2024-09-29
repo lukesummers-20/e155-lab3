@@ -1,5 +1,6 @@
 // Luke Summers lsummers@g.hmc.edu 9/5/24
 // combinational logic for a common annode seven segment display
+
 module sevSegLogic(
     input logic [3:0] s,
     output logic [6:0] sevSegOut

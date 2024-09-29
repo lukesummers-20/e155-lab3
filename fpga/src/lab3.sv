@@ -1,3 +1,6 @@
+// Luke Summers lsummers@g.hmc.edu 9/29/2024
+// top module for lab 3
+
 module lab3(
     input  logic [3:0] col,
     input  logic reset,

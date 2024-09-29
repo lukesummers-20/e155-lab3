@@ -1,5 +1,6 @@
 // Luke Summers lsummers@g.hmc.edu 9/10/24
 // time multiplexer for 2 4 bit inputs
+
 module inputMultiplexer(
     input reset, clk,
         input [3:0] s1, s2,

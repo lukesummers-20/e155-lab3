@@ -1,3 +1,6 @@
+// Luke Summers lsummers@g.hmc.edu 9/29/2024
+// decoder for signals going into the display multiplexer
+
 module fsm_decoder(
     input  logic [3:0] col, row,
     input  logic en, clk, reset,
@@ -5,6 +8,7 @@ module fsm_decoder(
 );
     logic [3:0] next;
 	logic switch;
+    
     // update signals on en
     always_ff @(posedge clk) begin
         if (reset == 0) begin 
@@ -19,6 +23,7 @@ module fsm_decoder(
 			switch <= 0;
         end
     end
+
     // logic for next signal
     always_comb
         case({row, col})

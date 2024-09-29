@@ -1,5 +1,6 @@
 // Luke Summers lsummers@g.hmc.edu 9/10/24
-// 48 MHz oscillating signal producing module
+// 48 MHz oscillating signal producing module, counter used to slow signal
+
 module lab3_oscillator(
     input  logic reset,
     output logic oscOut

@@ -1,3 +1,6 @@
+// Luke Summers lsummers@g.hmc.edu 9/29/2024
+// fsm for lab 3
+
 module lab3_fsm(
     input  logic [3:0] col,
     input  logic clk, reset,
@@ -33,40 +36,52 @@ module lab3_fsm(
     //next state logic
     always_comb
         case(state)
+			//check row 0
             s0: begin
 					if (col[0]|col[1]|col[2]|col[3]) next = s10;
 					else next = s1; 
 				end
+			//check row 1
             s1: begin 
 					if (col[0]|col[1]|col[2]|col[3]) next = s13;
 					else next = s2; 
 				end
+			//check row 2
 			s2: begin 
 					if (col[0]|col[1]|col[2]|col[3]) next = s4;
 					else next = s3; 
 				end
+			check row 3
 			s3: begin
 					if (col[0]|col[1]|col[2]|col[3]) next = s7;
 					else next = s0; 
 				end
+			
+			// row 0 pressed
 			s4: next = s5;
 			s5: next = s6;
 			s6: begin
 					if (col[0] | col[1] | col[2] | col[3]) next = s6;
 					else next = s1;
 				end
+			
+			// row 1 pressed
 			s7: next = s8;
 			s8: next = s9;
 			s9: begin
 					if (col[0] | col[1] | col[2] | col[3]) next = s9;
 					else next = s2;
 				end
+
+			// row 2 pressed
 			s10: next = s11;
 			s11: next = s12;
 			s12: begin
 					if (col[0] | col[1] | col[2] | col[3]) next = s12;
 					else next = s3;
 				end
+
+			// row 3 pressed
 			s13: next = s14;
 			s14: next = s15;
 			s15: begin
@@ -81,9 +96,11 @@ module lab3_fsm(
 	assign row[1] = (state == s1) | (state == s7) | (state == s8) | (state == s9);
 	assign row[2] = (state == s2) | (state == s10) | (state == s11) | (state == s12);
 	assign row[3] = (state == s3) | (state == s13) | (state == s14) | (state == s15);
+
 	assign row_pressed[0] = (state == s4) | (state == s5) | (state == s6);
 	assign row_pressed[1] = (state == s7) | (state == s8) | (state == s9);
 	assign row_pressed[2] = (state == s10) | (state == s11) | (state == s12);
 	assign row_pressed[3] = (state == s13) | (state == s14) | (state == s15);
+	
 	assign en = (state == s4) | (state == s7) | (state == s10) | (state == s13);
 endmodule
