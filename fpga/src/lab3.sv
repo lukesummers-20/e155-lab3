@@ -7,15 +7,19 @@ module lab3(
 );
     logic clk;
     lab3_oscillator oscillator(reset, clk);
+	
+	logic [3:0] col_sync;
+	synchronizer_4 sync1(col, clk, reset, col_sync);
 
-    logic enDecoder;
-    fsm_top fsm1(col, clk, reset, row, enDecoder);
+    logic en;
+	logic [3:0] row_pressed;
+    lab3_fsm fsm1(col_sync, clk, reset, row, row_pressed, en);
 
     logic[3:0] s1, s2;
-    fsm_decoder d1(col, row, enDecoder, clk, reset, s1, s2);
+    fsm_decoder d1(col, row_pressed, en, clk, reset, s1, s2);
 
     logic[3:0] sevSegIn;
     inputMultiplexer m1(reset, clk, s1, s2, en1, en2, sevSegIn);
 
-    sevSegLogic l1(sevSegIn, sevSegOut);
+    sevSegLogic d2(sevSegIn, sevSegOut);
 endmodule

@@ -5,7 +5,7 @@ module lab3_oscillator(
     output logic oscOut
 );
     logic intOsc;
-	logic [18:0] counter;
+	logic [32:0] counter;
 
     // Internal high-speed oscillator
     HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(intOsc));
